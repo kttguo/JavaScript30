@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+<body>
+  <!-- canvas是一个像素界别的画布，使用它我们可以在网页中绘制所需的图形
+    它允许我们绘制直线、圆、矩形等基本形状以及图像和文字 ,一般图形绘制是由脚本完成js
+    使用canvas元素,可以实时渲染图形 游戏动画或其他虚拟图像
+    各大主流浏览器都已经支持GPU加速的2D canvas渲染,因此,使用canvas绘制出的游戏动画运行速度会很快
+  -->
+
+<canvas id="draw" width="800" height="800"></canvas>
+<img src="https://source.unsplash.com/gYl-UtwNg_I/1500x1500" id="cavimg" width=0 height=0>
+
+<script src="canvas.js"></script>
+<style>
+  html, body {
+    margin: 0;
+  }
+</style>
+</body>
+</html>

@@ -1,0 +1,41 @@
+/* :root 这个伪类匹配文档树的根元素，既HTML元素 */
+    :root{
+      --spacing:10px;
+      --blur:10px;
+      --base:#ffc600;
+    }
+    img{
+      padding: var(--spacing);
+      filter: blur(var(--blur));
+      background-color: var(--base);
+    }
+    
+    .hl{
+      color:var(--base);
+    }
+    /*
+      misc styles, nothing to do with CSS variables
+    */
+
+    body {
+        text-align: center;
+        background: #193549;
+        color: white;
+        font-family: 'helvetica neue', sans-serif;
+        font-weight: 100;
+        font-size: 50px;
+      }
+  
+      .controls {
+        margin-bottom: 50px;
+      }
+  
+      input {
+        width: 100px;
+      }
+
+      /* 
+      filter属性：定义了元素(通常是<img>)的可视效果，例如（模糊和饱和度）
+      https://www.w3cschool.cn/cssref/css3-pr-filter.html
+      https://developer.mozilla.org/zh-CN/docs/Web/CSS/filter
+      */

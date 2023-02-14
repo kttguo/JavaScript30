@@ -1,0 +1,58 @@
+html {
+  font-size: 10px;
+  background: url('./background.jpg') bottom center;
+  background-size: cover;/* 保持纵横比，将图像缩放为覆盖背景定位区域的最小大小 */  
+}
+
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* 弹性布局 */
+.keys {
+  display: flex;
+  /*让所有弹性盒模型对象的子元素都有相同的长度，忽略它们内部的内容：*/
+  /* flex: 1; */
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  border: .4rem solid black;
+  border-radius: .5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  /* transition属性提供 在更改 CSS 属性时控制动画速度的方法。
+  其可以让属性变化成为一个持续一段时间的过程，而不是立即生效的 */
+  transition: all .07s ease;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 .5rem black;
+}
+
+/* 按键按下时候的小时效果 */
+.playing {
+  transform: scale(1.52);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  /* 控制文本大小写：none|capitalize|uppercase|lowercase|inherit 默认|每个单词的首字母大写|大写|小写|从父元素继承 */
+  text-transform: uppercase;
+  /* 字符间距：normal|length|inherit 默认，规定字符间没有额外空间|数值，字符间距固定 */
+  letter-spacing: .1rem;
+  color: #ffc600;
+}

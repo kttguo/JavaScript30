@@ -1,0 +1,111 @@
+html {
+    background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+    background-size: cover;
+    font-family: 'helvetica neue';
+    text-align: center;
+    font-size: 10px;
+  }
+
+  body {
+    margin: 0;
+    font-size: 2rem;
+    display: flex;
+    flex: 1;
+    min-height: 100vh;/*vh--1%的视口高度
+    讲单位的 ：https://www.w3cschool.cn/lugfe/lugfe-5jo225zh.html
+    */
+    align-items: center;
+  }
+
+  /* 钟表的表盘设定 */
+  .clock {
+    width: 30rem;
+    height: 30rem;
+    border: 20px solid white;
+    border-radius: 50%;
+    margin: 50px auto;
+    position: relative;
+    padding: 2rem;
+    /*容器设置阴影*/
+    box-shadow:
+      0 0 0 4px rgba(0,0,0,0.1),
+      inset 0 0 0 3px #EFEFEF,
+      inset 0 0 10px black,
+      0 0 10px rgba(0,0,0,0.2);
+  }
+
+  /* 设置时针分针秒针 样式 */
+  .clock-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /*account for the height of the clock hands*/
+    transform: translateY(-3px); 
+  }
+
+  .hand {
+    width: 50%;
+    height: 6px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  }
+  /*transform :变换的效果，让某个元素改变形状，大小和位置。
+  在线演示网址： https://www.w3cschool.cn/tools/index?name=css3_transform 
+  transform:translate(x，y) | rotate(30deg)|scale()|skew(30deg,20deg)|matrix
+
+  translate(50px，100px):平移，从x轴（左边）和y轴（顶部）按照给定的参数，从当前位置移动
+  rotate(30deg) :旋转 ，正值是根据给定的度数做顺时针旋转，负值是逆时针旋转
+  scale（2,4）：放大或缩小 转变宽度为原来的大小的2倍，和其原始大小4倍的高度。
+  skew(30deg,20deg)：倾斜 元素在X轴和Y轴上倾斜30度和20度。
+  matrix( scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY() )
+   ：以上四个参数的合并：有六个参数，包含旋转，缩放，移动（平移）和倾斜功能。
+  
+   */
+
+   /* transform-origin：指定元素的中心点
+      默认状态下，变形的原点再元素的中心点，或元素X轴和Y轴的50%处
+    transform-origin : 50% 0;  //也可以设为 center top  上面一条线的中点
+   */
+
+  /* transition:从一种样式逐渐改为另一种效果，这样在鼠标单击、获得焦点、被点击或对元素任何改变中触发，并圆滑地以动画效果改变CSS的属性值
+    必须要指定两点：一是指定要添加效果的css属性，二是指定效果的持续时间
+    transition : property duration timing-function delay;
+    transition-property：none|all|property指定需要改变的css属性名称
+        none:没有属性会获得过渡效果
+        all：所有属性都会获得过渡效果
+        指定css属性名称，多个以逗号分隔
+    transition-duration：持续时间，单位为s（秒）或者ms(毫秒)，必须指定
+    transition-timing-function：转速曲线
+    transition-delay：延迟时间，单位为秒
+  */
+
+  /* transition-timing-function：过渡效果，以改变其持续时间的速度
+  linear:匀速 从开始到结束以相同的速度的过渡效果，等于 cubic-bezier(0,0,1,1)）
+  ease ：慢-快-慢 cubic-bezier(0.25,0.1,0.25,1)）。
+  ease-in:以慢速开始的过渡效果 （等于 cubic-bezier(0.42,0,1,1)）
+  ease-out：慢速结束（等于 cubic-bezier(0,0,0.58,1)）。
+  ease-in-out 规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）。
+  cubic-bezier(n,n,n,n) 在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值
+  */
+
+  /* cubic-bezier() 函数定义了一个贝塞尔曲线(Cubic Bezier)。
+  贝塞尔曲线由四个点 P0，P1，P2 和 P3 定义，p0,p3是曲线的起点和终点
+  P0是（0,0）并且表示初始时间和初始状态，P3是（1,1）并且表示最终时间和最终状态。
+  P1：动态取值 (x1, y1)
+  P2：动态取值 (x2, y2)
+  */
+
+  /* 容器设置阴影box-shadow
+    box-shadow: h-shadow v-shadow blur spread color inset;
+    h-shadow：指定水平方向偏移的阴影。正值，阴影向右。负值，阴影向左
+    v-shadow：垂直方向偏移的阴影。正值,阴影在框的底部，负值，向上
+    blur：柔化半径，默认为0，这意味着没有模糊。正值增加了模糊，负值，缩小了阴影
+    spread:阴影的尺寸 0px代表阴影和当前的实体一样大
+    color：阴影颜色
+    inset：将外部阴影改成内部阴影
+  */

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="charu" >
+      <p>请显示信息</p>
+    </div>
+    <script>
+      // innerHTML属性允许将元素中的html获取为字符串形式
+      let arr = [
+        "<h1>This is innerHtml</h1>",
+        "<h2>hello,world<h2>",
+        "<p>hi</p>",
+      ];
+    //   join(';')使用join将数组粘合成字符串
+      console.log(arr.join(";"));
+    //   <h1>This is innerHtml</h1>;<h2>hello,world<h2>;<p>hi</p>
+      
+      let div = document.querySelector("#charu");
+      console.log(div);
+      div.innerHTML =
+        "<h1>This is innerHtml</h1><h2>hello,world</h2><p>hi</p>";
+
+    arr=[{list:'赚钱',done:'true'}];
+    </script>
+  </body>
+</html>

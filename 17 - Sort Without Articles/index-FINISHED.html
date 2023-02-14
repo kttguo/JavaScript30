@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sort Without Articles</title>
+</head>
+<body>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url("https://source.unsplash.com/nDqA4d5NL0k/2000x2000");
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    #bands {
+      list-style: inside square;
+      font-size: 20px;
+      background: white;
+      width: 500px;
+      margin: auto;
+      padding: 0;
+      box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    #bands li {
+      border-bottom: 1px solid #efefef;
+      padding: 20px;
+    }
+    
+    #bands li:last-child {
+      border-bottom: 0;
+    }
+
+    a {
+      color: #ffc600;
+      text-decoration: none;
+    }
+
+  </style>
+<!-- 今天的挑战是对数组进行排序。将乐队按照乐曲名称进行排序，曲名前面的a/an/the的单词不参与排序。 -->
+<!-- https://blog.csdn.net/weixin_33692284/article/details/89009658 -->
+<ul id="bands"></ul>
+
+<script>
+const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
+
+// strip 脱 去掉前面的the/a/an
+function strip(bandName) {
+  //replace用于替换匹配的子字符串
+  //trim()用于去除字符串两端的空格，返回一个新字符串，不改变原字符串
+  console.log(bandName.replace(/^(a |the |an )/i, '').trim());
+  return bandName.replace(/^(a |the |an )/i, '').trim();
+}
+
+// sort 对元素进行排序，并返回数组。默认排序方法是将元素转换为字符串，然后比较它们的UTF-16代码单元值序列时构建的
+//sort中传递一个比较函数compare（a,b），这个函数返回一个值,如果大于0，则b会被排到a的前面去，小于0,则a在前，b在后
+const sortedBands = bands.sort((a, b) => strip(a) > strip(b) ? 1 : -1);
+
+document.querySelector('#bands').innerHTML =
+  sortedBands
+    .map(band => `<li>${band}</li>`)
+    .join('');
+
+console.log(sortedBands);
+
+</script>
+
+</body>
+</html>

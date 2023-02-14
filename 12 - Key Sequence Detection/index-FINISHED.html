@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection 密钥检测</title>
+  <!-- 从cornify.com加载一个js文件，调用其中的cornify_add()方法，会在页面中追加p标签,并在DOM中插入一个图标 -->
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+  <!--键盘输入序列的验证 -->
+<script>
+const pressed = [];
+const secretCode = 'wesbos';
+
+window.addEventListener('keyup', (e) => {
+  // console.log(e);
+  // console.log(e.key);
+  pressed.push(e.key);
+  console.log(-secretCode.length -1);//-7
+  console.log(pressed.length - secretCode.length);
+  console.log(pressed.length);
+  //截取数组，始终删掉一个元素
+  // 起始位置如果是负数，就表示从倒数位置开始删除。
+  // splice从索引-secretCode.length - 1处开始，第一个下标位置开始删掉n个元素,在把后面的元素插入到第一个下标位置处
+  pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+  console.log(pressed);
+  // join('') 将数组粘合成字符串，如果字符串中包含substr,返回true
+  if (pressed.join('').includes(secretCode)) {
+    console.log('DING DING!');
+    cornify_add();
+  }
+  console.log(pressed);
+});
+</script>
+</body>
+</html>
